@@ -1,0 +1,201 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a base font and background color */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #baa5a5;
+  }
+  
+  /* Container for the whole app */
+  .container {
+    display: flex;
+    height: 100vh; /* 100% viewport height */
+  }
+  
+  /* Left side editor */
+  .editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #c44747;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Textarea for input code */
+  #inputCode {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: none;
+  }
+  
+  /* Right side editor */
+  .output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #988e8e;
+    box-shadow: 0 0 5px rgba(228, 203, 203, 0.1);
+  }
+  
+  /* Pre tag for displaying output code */
+  #outputCode {
+    flex: 1;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  
+
+  /* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a base font and background color */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #2f2d2d;
+  }
+  
+  /* Container for the whole app */
+  .container {
+    display: flex;
+    height: 100vh; /* 100% viewport height */
+  }
+  
+  /* Left side editor */
+  .editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ae8686;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-right: 10px; /* Add some spacing between editors */
+  }
+  
+  /* Dropdown select style */
+  #languageSelect {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #87d1f6;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  /* Textarea for input code */
+  #inputCode {
+    flex: 1;
+    border: none;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: none;
+  }
+  
+  /* Right side editor */
+  .output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ddca3c;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-left: 10px; /* Add some spacing between editors */
+  }
+  
+  /* Pre tag for displaying output code */
+  #outputCode {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  
+  /* Convert Code button */
+  #convertButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff1e00;
+    color: #fffefe;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #convertButton:hover {
+    background-color: #0056b3;
+  }
+  /* ... (previous CSS) ... */
+
+/* Text editor styles */
+.editor, .output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Textarea for input and output code */
+  #inputCode, #outputCode {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: none;
+    background-color: transparent;
+  }
+  
+  /* Scrollbar style */
+  #inputCode::-webkit-scrollbar, #outputCode::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #inputCode::-webkit-scrollbar-thumb, #outputCode::-webkit-scrollbar-thumb {
+    background-color: #ffa4a4;
+    border-radius: 10px;
+  }
+  
+  #inputCode::-webkit-scrollbar-thumb:hover, #outputCode::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
+  
+  /* ... (previous CSS) ... */
+  .output {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Pre tag for displaying output code */
+  #outputCode {
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-height: calc(100vh - 150px); /* Adjust this value as needed */
+  }  

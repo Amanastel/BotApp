@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Code Converter App</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+    
+        .split-container {
+            display: flex;
+            width: 100%;
+        }
+    
+        .editor, .output {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        .editor {
+            background-color: #d4f2f6;
+            margin-right: 10px; /* Add some spacing between editors */
+        }
+    
+        .output {
+            background-color: #e2debf;
+            box-shadow: 0 0 5px rgba(163, 59, 59, 0.1);
+            margin-left: 10px; /* Add some spacing between editors */
+        }
+    
+        /* Textarea for input and output code */
+        #inputCode, #outputCode {
+            flex: 1;
+            border: none;
+            font-size: 16px;
+            line-height: 1.5;
+            resize: none;
+            background-color: transparent;
+        }
+    
+        /* Scrollbar style */
+        #inputCode::-webkit-scrollbar, #outputCode::-webkit-scrollbar {
+            width: 8px;
+        }
+    
+        #inputCode::-webkit-scrollbar-thumb, #outputCode::-webkit-scrollbar-thumb {
+            background-color: #ffa4a4;
+            border-radius: 10px;
+        }
+    
+        #inputCode::-webkit-scrollbar-thumb:hover, #outputCode::-webkit-scrollbar-thumb:hover {
+            background-color: #aaa;
+        }
+    
+        /* Dropdown select style */
+        #languageSelect {
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            background-color: #87d1f6;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    
+        /* Convert Code button */
+        #convertButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff1e00;
+            color: #fffefe;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        #convertButton:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Pre tag for displaying output code */
+        #outputCode {
+            font-size: 16px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            max-height: calc(100vh - 150px); /* Adjust this value as needed */
+        }
+    
+    </style>
+    
+</head>
+
+<body>
+    <h1>Code Converter App</h1>
+
+    <div class="split-container">
+        <div class="editor">
+            <h2>Input Code</h2>
+            <select id="languageSelect">
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+            </select>
+            <textarea id="inputCode" rows="10" cols="80" placeholder="Enter your code here"></textarea>
+            <button id="convertButton">Convert Code</button>
+        </div>
+
+        <div class="output">
+            <h2>Converted Code</h2>
+            <pre id="convertedCode"></pre>
+        </div>
+    </div>
+
+    <script>
+        convertButton.addEventListener('click', async () => {
+            const selectedLanguage = languageSelect.value;
+            const code = inputCode.value;
+
+            const response = await fetch('http://localhost:8080/api/convert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    prompt: code,
+                    max_tokens: 200,
+                    language: selectedLanguage
+                })
+            });
+
+            console.log('Response Status:', response.status, response); // Log the response status
+
+            const responseData = await response.text(); // Read the response as text
+            console.log('Raw Response:', responseData); // Log the raw response content
+            convertedCode.innerText = responseData;
+           
+            // if (response.ok) {
+            //     try {
+            //         const data = JSON.parse(responseData); // Parse the response as JSON
+                    
+            //     } catch (error) {
+            //         console.error('Error parsing JSON:', error);
+            //         convertedCode.innerText = 'Error parsing response';
+            //     }
+            // } else {
+            //     convertedCode.innerText = 'Error converting code';
+            // }
+        });
+
+    </script>
+</body>
+
+</html>
